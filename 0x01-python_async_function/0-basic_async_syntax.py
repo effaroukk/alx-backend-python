@@ -8,12 +8,11 @@ Use the random module.
 """
 
 
-import random
 import asyncio
-
+import random
 
 async def wait_random(max_delay: int = 10) -> float:
-    """Wait for some time"""
-    wait_time = random.random() * max_delay
-    await asyncio.sleep(wait_time)
-    return wait_time
+    delay = random.uniform(0, max_delay)  # Generate a random float between 0 and max_delay
+    await asyncio.sleep(delay)  # Wait for the generated delay
+    return delay  # Return the delay value
+
